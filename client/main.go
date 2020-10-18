@@ -152,5 +152,6 @@ func index(w http.ResponseWriter, req *http.Request) {
 func main() {
 	http.HandleFunc("/start_vm", startVM)
 	http.HandleFunc("/stop_vm", stopVM)
+	http.HandleFunc("/", index)
 	_ = http.ListenAndServe(":2333", nil)
 }
