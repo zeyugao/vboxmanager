@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vbox manage</title>
+</head>
+<body>
+
+<div>
+    {{ range .vms }}
+        <div>
+            <span>{{ .name }} - {{ .uuid }}</span>
+            {{ if .running }}
+                <span style="color: green;">Stopped</span>
+                <a href="/start_vm?uuid={{ .uuid }}">Start</a>
+            {{ else }}
+                <span style="color: red;">Running</span>
+                <a href="/stop_vm?uuid={{ .uuid }}">Stop</a>
+            {{ end }}
+        </div>
+    {{ end }}
+</div>
+
+</body>
+</html>
