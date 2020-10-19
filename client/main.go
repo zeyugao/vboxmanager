@@ -126,6 +126,7 @@ func index(w http.ResponseWriter, req *http.Request) {
 	resp, err := http.Get("http://" + ip + ":2333/list_vm")
 	if err != nil {
 		_, _ = fmt.Fprintln(w, err)
+		return
 	}
 	s, _ := ioutil.ReadAll(resp.Body)
 
